@@ -9,6 +9,7 @@ import Chars from '../Chars';
 class App extends Component {
   componentDidMount() {
     // call our action
+    // console.log(this.props);
     this.props.getChars();
   }
   render() {
@@ -27,9 +28,11 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapDispatchToProps = state => {
+  // console.log(state);
   return {
     chars: state.chars,
-    fetching: state.fetching
+    fetching: state.fetching,
+    error: state.error
   }
 }
 

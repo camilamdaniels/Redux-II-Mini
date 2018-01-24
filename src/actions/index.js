@@ -7,11 +7,11 @@ export const CHARS_RECEIVED = 'CHARS_RECEIVED';
 export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 
 export const getChars = () => {
-	const chars = axios.get('https://swapi.co/api/people/?format=json');
+	const chars = axios.get('https://swapi.co/api/people/');
 	return dispatch => {
 		dispatch({type: FETCHING_CHARS});
 		chars.then(({data}) => {
-			dispatch({type: CHARS_RECEIVED, payload: data.message});
+			dispatch({type: CHARS_RECEIVED, payload: data.results});
 		})
 		.catch(err => {
 			dispatch({type: ERROR_FETCHING_CHARS, payload: err})
